@@ -36,6 +36,8 @@
         
         self.backgroundColor = [UIColor blackColor];
         
+      
+        
     }
     
     return self;
@@ -46,8 +48,6 @@
     [view addSubview:self];
     
     self.frame = view.layer.frame;
-    
-    
     
     
     CGRect centeredRect = CGRectMake((self.bounds.size.width - _animatedImageView.bounds.size.width) / 2,
@@ -63,6 +63,16 @@
                      } completion:^(BOOL finished) {
                          //
                      }];
+    
+    
+    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    tipLabel.backgroundColor = [UIColor redColor];
+    tipLabel.text = @"向下滑动即可返回";
+    tipLabel.textAlignment = NSTextAlignmentCenter;
+    tipLabel.center = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame) - 40);
+    [self addSubview:tipLabel];
+    
+    
 }
 
 - (void)dismiss:(UISwipeGestureRecognizer *)swipeGesture
